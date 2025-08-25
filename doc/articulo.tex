@@ -1,0 +1,147 @@
+\documentclass[a4paper,11pt]{article}
+%\usepackage[utf8x]{inputenc}
+\usepackage{latexsym}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx} 
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=black]{hyperref}
+\usepackage{listings}
+\usepackage{xcolor} %para darle color a los codigos
+\usepackage{lmodern} %para agregarle bold a las letras ttfamily
+% para cambiar los margenes
+\usepackage{anysize}
+\marginsize{3cm}{3cm}{2cm}{2cm} 
+
+\definecolor{gray97}{gray}{.9}
+\definecolor{gray45}{gray}{.45}
+%% Configura las opciones de ``listings''
+\lstset{ frame=Ltb,
+framerule=0pt,
+aboveskip=0.5cm,
+framextopmargin=3pt,
+framexbottommargin=3pt,
+framexleftmargin=0.4cm,
+framesep=0pt,
+rulesep=.4pt,
+backgroundcolor=\color{gray97},
+rulesepcolor=\color{black},
+%
+stringstyle=\ttfamily,
+showstringspaces = false,
+basicstyle=\small\ttfamily,
+commentstyle=\color{gray45},
+keywordstyle=\bfseries,
+%
+numbers=left,
+numbersep=15pt,
+numberstyle=\tiny,
+numberfirstline = false,
+breaklines=true,
+}
+
+\lstdefinelanguage{VHDL}{
+  morekeywords={
+    library,use,all,entity,is,port,in,out,end,architecture,of,
+    begin,and,case,if,else,when,while,process,loop,for,then,elsif,signal,
+    variable,constant,with,select,ENTITY,SIGNAL,PROCESS,WAIT,EVENT,AND,
+    USE,ALL,IS,PORT,IN,OUT,END,ARCHITECTURE,OF,BEGIN,CASE,IF,ELSE,WHEN
+  },
+  morecomment=[l]--
+}
+\lstdefinelanguage{{[x86masm]Assembler}}{
+  morekeywords={
+    LOAD,STORE,ADD
+  },
+  morecomment=[l];
+}
+
+\colorlet{keyword}{blue!100!black!80}
+\colorlet{comment}{green!90!black!90}
+\lstdefinestyle{vhdl}{
+  language     = VHDL,
+  basicstyle   = \ttfamily,
+  keywordstyle = \color{keyword}\bfseries,
+  commentstyle = \color{comment}
+}
+
+
+
+%opening
+\title{\vspace{6cm} Microprocesadores en VHDL, aspectos prácticos \\ 
+%\large Circuitos Digitales y Microprocesadores \\ 
+\large Codiseño Software Hardware \\ 
+\large Departamento de electrotécnia \\
+\large Universidad Nacional de la Plata
+}
+\author{ Ing. Eduardo Kunysz}
+\begin{document}
+\thispagestyle{empty} %Para que no numere esta página
+
+\begin{center}
+\includegraphics[width=1\textwidth]{graficos/encabezado.jpg} 
+\hspace{-1cm}
+\begin{tabular}{c} 
+ {\it \bf Facultad de Ingeniería -- Universidad Nacional de La Plata} \\ 
+\vspace{0.2cm} {\it  Departamento de Electrotecnia. CeTAD.} 
+\end{tabular}
+\end{center}
+\begin{table}[h]
+\hspace{1.3cm}
+\begin{tabular}{p{12cm}}
+\hline \\[1cm]
+\vspace{5cm}
+\begin{center}
+\LARGE \textbf{Microprocesadores en VHDL,\\
+aspectos prácticos}
+\\[2cm] 
+\end{center}
+
+\end{tabular}
+
+\end{table}
+\begin{center}
+%\large \textbf{Cátedra de Circuitos Digitales y Microprocesadores}
+\large \textbf{Cátedra de Codiseño Software Hardware}
+\end{center}
+\begin{center}
+ \large \textbf{Versión 0.2}            
+\end{center}
+
+
+%\maketitle
+\vspace{8cm}
+\begin{flushright}
+\large \textbf{Autor: Ing. Eduardo J. Kunysz}
+\end{flushright}
+\newpage
+\thispagestyle{empty}
+\begin{abstract}
+El siguiente artículo tiene por objetivo describir las herramientas de descripción de hardware mediante VHDL con la finalidad de poder
+desarrollar de forma conceptual y práctica un uProcesador básico con fines didácticos y educativos. 
+
+En la primer parte se hace un breve resumen de algunos conceptos básicos de VHDL. En la segunda parte se ven algunos módulos
+que forman parte de un microprocesador, en la tercer parte se implementa y simula un microprocesador sencillo.
+\end{abstract}
+\normalsize
+\newpage
+\setcounter{page}{1}
+\tableofcontents
+
+\include{vhdl}
+\include{modulos}
+\include{uprocesador}
+
+%\section{Modelsim}
+%Completar
+\section{Bibliografía}
+\small{
+[1] ``Rapid Prototyping of Digital Systems'', Sec. Edition, James O. Hamblen, M. Furmman
+
+[2] ``Digital Design, Principles \& Practices'', Third Edition, John F. Walkerly.
+
+[3] ``DE0 User Manual'', Altera.
+
+[4] ``ModelSim User's Manual'', Mentor Graphics
+}
+\end{document}
